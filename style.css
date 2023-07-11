@@ -1,0 +1,291 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    outline: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+:root{
+    --color-white: #FFFFFF;
+    --color-primary:#daf94e;
+    --color-dark: #333333;
+    --color-white-bg: #FDFDFD;
+    --box-shadow: rgba(0,0,0,0.3);
+    --transition: .4s ease;
+}
+.dark-Mood{
+    --color-dark: #FDFDFD;
+    --color-white-bg: #0b0a06;
+    --box-shadow: rgba(0,0,0,0.7);
+}
+body {
+    background: linear-gradient(greenyellow,pink,rgb(174, 110, 201),lightblue,rgb(221, 85, 178));
+    color: var(--color-dark)
+}
+img{
+    display: block;
+    width: 100%;
+}
+.btn{
+    display: inline-block;
+    width: fit-content;
+    padding: 1.2rem 2.2rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: .4rem;
+    box-shadow: 0 0.2rem 0.4rem var(--box-shadow);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: .7px;
+    border: 2px solid transparent;
+    cursor: default;
+    transition: var(--transition);
+}
+.btn:hover{
+    border-color: var(--color-primary);
+    background: transparent;
+    color: var(--color-primary);
+}
+.container{
+    max-width: 1380px;
+    width: 90%;
+    margin: 0 auto;
+}
+/* ............start navbar............*/
+nav{
+    width: 100%;
+    position: fixed;
+    height: 5rem;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    display: grid;
+    place-items: center;
+}
+.nav-scroll{
+    background: #0b0a06;
+    box-shadow: 0 .5rem .5rem rgba(0,0,0,0.3);
+}
+.nav-container{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-container .logo h3{
+    font-weight: 600;
+    font-size: 1.9rem;
+    color: #0b0a06;
+    cursor: default;
+}
+.nav-container .navlinks{
+    display: flex;
+    align-items: center;
+    gap: 3.4rem;
+}
+.nav-container .navlinks li a{
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+}
+.nav-container .navlinks li .active::before{
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: .1rem;
+    background: var(--color-white);
+}
+.nav-container .navlinks .Mood-icon{
+    font-size: 1.4rem;
+    display: inline-block;
+    color: var(--color-white);
+    transition: var(--transition);
+    background: transparent;
+}
+
+.nav-container .navlinks .Sun {
+    display: none;
+    
+}
+header{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+.header-container{
+    display: grid;
+    grid-template-columns: 44% auto;
+}
+.header-left{
+    margin-top: 5rem;
+    position: relative;
+    z-index: 1;
+    font-size: 25px;
+}
+.header-container h3{
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 110%;
+}
+.header-container h1{
+    font-size: 3.4rem;
+    font-weight: 700;
+    margin-bottom: .2rem;
+}
+.header-container p{
+    font-size: 20px;
+}
+
+
+/*....................header right..............*/
+.profession-content{
+    position: absolute;
+    width: 768px;
+    height: 100%;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.profession-box{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: circleAnimation 10s ease-out infinite;
+}
+@keyframes circleAnimation {
+    0%,25%{
+        transform: rotate(0deg);
+    }
+    30%,55%{
+        transform: rotate(-120deg);
+    }
+    60%,90%{
+        transform: rotate(-240deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+    }
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 0;
+    width: 0;
+    border-top: 50vh solid var(--color-primary);
+    border-bottom: 50vh solid var(--color-primary);
+    border-left: 384px solid transparent;
+    border-right: 384px solid var(--color-primary);
+}
+.header-img {
+    position: absolute;
+    bottom: 0;
+    right: -7.5rem;
+    width: 100;
+    background: #daf94e;
+}
+#About{
+    padding-top: 5%;
+}
+.about-container{
+    display: grid;
+    grid-template-columns: 36% 56%;
+    gap: 8%;
+    align-items: center;
+}
+.about-img{
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 26rem;
+    height: 26rem;
+    aspect-ratio: 1/1;
+    border-radius: .4rem;
+}
+.about-right h2{
+    color: var(--color-primary);
+    font-size: 3.5rem;
+}
+.about-right h3{
+    margin: .5rem 0;
+    font-size: 1.5rem;
+}
+.about-right p{
+    margin-bottom: 2rem;
+    font-size: 19px;
+    font-family: serif;
+    font-size: 30px;
+}
+#Skills{
+    padding-top: 5%;
+}
+.skills-img {
+    float: right;
+  }
+.skill-right h2{
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 3.5rem;
+}
+.skill-right h3{
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: serif;
+}
+.skill-right p{
+    margin-bottom: .6rem;
+    font-size: 25px;
+    font-family: cursive;
+}
+#projects{
+    padding-top: 5%;
+}
+.project-img {
+    float: left;
+  }
+.project-right h2{
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 3.5rem;
+}
+.project-right h3{
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: serif;
+}
+.project-right p{
+    margin-bottom: .6rem;
+    font-size: 30px;
+    font-family: cursive;
+}
+#Contact{
+    padding-top: 15%;
+}
+.contact-container h2{
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 3.5rem;
+    font-family: cursive;
+}
+.contact-container p{
+    margin-bottom: .6rem;
+    font-size: 19px;
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 500;
+}
